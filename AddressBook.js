@@ -102,6 +102,15 @@ function editContact(){
     }
 }
 
+function deleteContact(){
+    var name = prompt("Please enter the firstname of contact you want to delete :");
+    for(let i=0;i<array.length;i++){
+        if(array[i].firstName == name){
+            array.splice(i,1);
+        }
+    }
+}
+
 
 while(true){
     console.log("Please choose the option");
@@ -115,6 +124,11 @@ while(true){
             break;
         case "3":
             editContact();
+            break;
+        case "4":
+            deleteContact();
+        default:
+            console.log("Please choose the correct option");
             break;
     }
 }
