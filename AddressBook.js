@@ -111,10 +111,13 @@ function deleteContact(){
     }
 }
 
+function countOfContacts(data) {
+    return data.reduce((sum, a) => sum + 1, 0);
+}
 
 while(true){
     console.log("Please choose the option");
-    var option = prompt("1)Display Contacts in AddressBook. \n2)Add Details in AddressBook\n3) Edit Contact using FirstName \n");
+    var option = prompt("1)Display Contacts in AddressBook. \n2)Add Details in AddressBook\n3) Edit Contact using FirstName\n4)Delete contact \n5)count using Reduce \n");
     switch(option){
         case "1":
             displayContacts();
@@ -127,6 +130,11 @@ while(true){
             break;
         case "4":
             deleteContact();
+            break;
+        case "5":
+            var coun = countOfContacts(array);
+            console.log(coun);
+            break;
         default:
             console.log("Please choose the correct option");
             break;
