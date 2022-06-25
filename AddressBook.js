@@ -51,15 +51,70 @@ function addDetails(){
     contact.email = prompt("Please enter the email :");
     array.push(contact);
 }
+
+function addDetails(){
+    var contact = new AddressBook();
+    contact.firstName = prompt("Please enter the firstName :");
+    contact.lastName = prompt("Please enter the lastName :");
+    contact.address = prompt("Please enter the address :");
+    contact.city = prompt("Please enter the city :");
+    contact.state = prompt("Please enter the state :");
+    contact.zip = prompt("Please enter the zip :");
+    contact.phoneNumber = prompt("Please enter the phoneNumber :");
+    contact.email = prompt("Please enter the email :");
+    array.push(contact);
+}
+function editContact(){
+    var name = prompt("Please enter the firstname of contact you want to Edit :");
+    for(let i=0;i<array.length;i++){
+        if(array[i].firstName == name){
+            var choice = prompt("Please choose what you want to edit : \n1)firstName \n2)lastName \n3)Address \n4)city \n5)State \n6)Zip \n7)Phone Number \n8)Email \n");
+            switch(choice){
+                case "1":
+                    array[i].firstName=prompt("Please enter the firstName :");
+                    break;
+                case "2":
+                    array[i].lastName = prompt("Please enter the lastName :");
+                    break;
+                case "3":
+                    array[i].address = prompt("Please enter the address :");
+                    break;
+                case "4":
+                    array[i].city=prompt("Please enter the city :");
+                    break;
+                case "5":
+                    array[i].state = prompt("Please enter the state :");
+                    break;
+                case "6":
+                    array[i].zip = prompt("Please enter the zip :");
+                    break;
+                case "7":
+                    array[i].phoneNumber=prompt("Please enter the phoneNumber :");
+                    break;
+                case "8":
+                    array[i].email = prompt("Please enter the email :");
+                    break;
+                default:
+                    console.log("Please choose correct option!");
+                    break;
+            }
+        }
+    }
+}
+
+
 while(true){
     console.log("Please choose the option");
-    var option = prompt("1)Add Details in AddressBook\n");
+    var option = prompt("1)Display Contacts in AddressBook. \n2)Add Details in AddressBook\n3) Edit Contact using FirstName \n");
     switch(option){
         case "1":
+            displayContacts();
+            break;
+        case "2":
             addDetails();
             break;
-        default:
-            console.log("Choose the correct option");
+        case "3":
+            editContact();
             break;
     }
 }
