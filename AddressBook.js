@@ -115,9 +115,38 @@ function countOfContacts(data) {
     return data.reduce((sum, a) => sum + 1, 0);
 }
 
+function displayContacts(){
+    for(let i=0;i<array.length;i++){
+        console.log(array[i]);
+    }
+}
+
+//uc7
+function dupicateCheckInAddContacts(){
+    var flag=0;
+    var contact = new AddressBook();
+    contact.firstName = prompt("Please enter the firstName :");
+    for(let i=0;i<array.length;i++){
+        if(array[i].firstName === contact.firstName){
+            flag=1;
+            console.log("Contact with this first name already exists!");
+        }
+    }
+    if(flag===0){
+        contact.lastName = prompt("Please enter the lastName :");
+        contact.address = prompt("Please enter the address :");
+        contact.city = prompt("Please enter the city :");
+        contact.state = prompt("Please enter the state :");
+        contact.zip = prompt("Please enter the zip :");
+        contact.phoneNumber = prompt("Please enter the phoneNumber :");
+        contact.email = prompt("Please enter the email :");
+        array.push(contact);
+    }
+}
+
 while(true){
     console.log("Please choose the option");
-    var option = prompt("1)Display Contacts in AddressBook. \n2)Add Details in AddressBook\n3) Edit Contact using FirstName\n4)Delete contact \n5)count using Reduce \n");
+    var option = prompt("1)Display Contacts in AddressBook. \n2)Add Details in AddressBook\n3) Edit Contact using FirstName\n4)Delete contact \n5)count using Reduce \n6)Ensure no duplicate entries \n");
     switch(option){
         case "1":
             displayContacts();
@@ -134,6 +163,9 @@ while(true){
         case "5":
             var coun = countOfContacts(array);
             console.log(coun);
+            break;
+        case "6":
+            dupicateCheckInAddContacts();
             break;
         default:
             console.log("Please choose the correct option");
